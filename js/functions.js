@@ -84,5 +84,5 @@ function spotifyAuth()
 		redirect_uri: currentUrl
 	}
 	url += '?' + $.param(params);
-	window.open(url);
+	window.open(url, '_self');
 }
