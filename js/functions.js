@@ -53,6 +53,10 @@ function getFilesTags(files)
 {
 	filesCount = files.length;
 	for (var key in files) {
+		if (!files.hasOwnProperty(key)) {
+			//The current property is not a direct property of p
+			continue;
+		}
 		var fileTags = jsmediatags.read(files[key], {
 			onError: function(errorObj) {
 				var fileNumber = this.valueOf(); //the binded var 'key'
@@ -73,6 +77,10 @@ function addSearchStrings(files)
 {
 	filesCount = files.length;
 	for (var key in files) {
+		if (!files.hasOwnProperty(key)) {
+			//The current property is not a direct property of p
+			continue;
+		}
 		var file = files[key];
 		if ( !file.tags || (file.tags.title == undefined == file.tags.artist) ) {
 			//use the filename
